@@ -38,7 +38,7 @@ public class coche {
     }
 ///METODO SETTERS PARA ASIENTOS DE CUEROS
     public void configura_asientos(String asientos_cuero){
-        if(asientos_cuero=="si"){
+        if(asientos_cuero.equalsIgnoreCase("si")){
             this.asientos_cueros=true; ///cuando usasmos la palabra "this" es por que tenemos similitud en el arguemento
         }                                   ///en la variable de la clase.
         else{
@@ -55,6 +55,51 @@ public class coche {
         }
     }
 
+    ///metodo setters para configurar climatizadores
+    public void configura_climatizadores(String climatizador) {
+    if(climatizador.equalsIgnoreCase("si")){
+        this.climatizador=true;
+    }
+    else {
+        this.climatizador=false;
+      }
+    }
+    public String dime_climatizador(){ ///metodo getters para uso del metodo setters configura climatizador
+        if(climatizador==true){
+            return "El coche incorpota climatizador";
+        }
+        else {
+            return "El coche lleva aire acondicionado";
+        }
+    }
+
+    ///usando metodo getters anda setters juntos (no es recomendado) "establecemos datos y devolvemos
+    public String dime_peso_coche(){
+        int peso_carroceria=500;
+
+        peso_total=peso_total+peso_plataforma;
+
+        if(asientos_cueros==true){
+            peso_total=peso_total+50;
+        }
+        if(climatizador==true){
+            peso_total=peso_total+20;
+        }
+        return "El peso del coche es "+peso_total;
+    }
+///metodo gettes devolvindo precio del coche segun la opcion que eligio el cliente
+    public int precio_coche(){
+        int precio_final=10000;
+
+        if(asientos_cueros==true){
+            precio_final+=2000;
+        }
+        if(climatizador==true){
+            precio_final+=1500;
+        }
+
+        return precio_final;
+    }
 
 
 
